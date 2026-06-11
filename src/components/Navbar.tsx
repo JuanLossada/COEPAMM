@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Brand from "./Brand";
+import { cn } from "@/lib/utils";
 
 const enlaces = [
   { href: "#quienes-somos", label: "Quiénes somos" },
@@ -23,9 +24,24 @@ const enlaces = [
 
 export default function Navbar() {
   const [abierto, setAbierto] = useState(false);
+  const [conScroll, setConScroll] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setConScroll(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/90 backdrop-blur">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 border-b border-navy-ink/10 backdrop-blur-xl transition-[background-color,box-shadow] duration-300",
+        conScroll
+          ? "bg-white/90 shadow-[0_12px_32px_-16px_rgba(8,20,39,0.22)]"
+          : "bg-white/70",
+      )}
+    >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" aria-label="COEPAMM - inicio">
           <Brand />
@@ -37,6 +53,7 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="sm"
+                className="rounded-full font-semibold"
                 nativeButton={false}
                 render={<a href={e.href} />}
               >
@@ -45,7 +62,11 @@ export default function Navbar() {
             </li>
           ))}
           <li className="ml-2">
-            <Button nativeButton={false} render={<Link href="/portal" />}>
+            <Button
+              className="rounded-full bg-gradient-to-br from-navy to-navy-deep font-bold shadow-[0_6px_16px_-8px_rgba(20,56,107,0.55)] transition-[transform,box-shadow] duration-250 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-10px_rgba(20,56,107,0.65)]"
+              nativeButton={false}
+              render={<Link href="/portal" />}
+            >
               Portal Afiliados
             </Button>
           </li>

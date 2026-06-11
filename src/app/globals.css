@@ -19,14 +19,16 @@
   --color-navy: #1a5096;
   --color-navy-deep: #14386b;
   --color-navy-ink: #0e2747;
+  --color-abyss: #081427;
   --color-sun: #f0e342;
   --color-sun-dark: #cdbd1e;
   --color-sky: #d8f0ff;
   --color-sky-soft: #eaf4fc;
+  --color-mist: #f3f8fd;
 
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-montserrat);
-  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-source-serif);
+  --font-heading: var(--font-source-serif);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -70,7 +72,7 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
 }
 
 ::selection {
@@ -169,5 +171,64 @@ body {
   }
   html {
     @apply font-sans;
+  }
+}
+
+/*
+ ===== Upgrade visual COEPAMM: efectos a 60 fps =====
+ Solo transform/opacity (composición GPU), sin layout thrashing.
+ */
+
+@keyframes cp-float-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(44px, -28px, 0) scale(1.07); }
+}
+@keyframes cp-float-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-48px, 26px, 0) scale(0.95); }
+}
+@keyframes cp-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes cp-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Estado inicial de los scroll-reveals (use-reveal.ts añade .is-revealed).
+   La clase .cp-reveal solo se aplica en cliente y solo bajo el fold:
+   sin JS la página se ve completa (SEO / no-JS safe). */
+.cp-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cp-reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Línea de la timeline que se dibuja al entrar en viewport */
+.cp-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cp-line.is-revealed {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-reveal,
+  .cp-line {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }

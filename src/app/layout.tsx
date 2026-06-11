@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Source_Serif_4, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-// Tipografía propuesta (el logo no permite identificar la fuente oficial):
-// Montserrat para titulares, Inter para cuerpo.
-const inter = Inter({
-  variable: "--font-inter",
+// Tipografía del upgrade visual: Source Serif 4 (titulares, tono institucional
+// formal) + Source Sans 3 (cuerpo y etiquetas).
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
 });
 
@@ -31,8 +31,8 @@ export default function RootLayout({
       lang="es"
       className={cn(
         "h-full antialiased font-sans",
-        inter.variable,
-        montserrat.variable,
+        sourceSans.variable,
+        sourceSerif.variable,
       )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
