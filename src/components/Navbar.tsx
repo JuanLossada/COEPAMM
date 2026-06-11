@@ -90,7 +90,7 @@ export default function Navbar() {
                 <li key={e.href}>
                   <Button
                     variant="ghost"
-                    className="w-full justify-start"
+                    className="h-11 w-full justify-start text-[15px]"
                     nativeButton={false}
                     render={
                       <a href={e.href} onClick={() => setAbierto(false)} />
@@ -102,7 +102,7 @@ export default function Navbar() {
               ))}
               <li className="pt-3">
                 <Button
-                  className="w-full rounded-none bg-navy-deep font-bold hover:bg-navy-ink"
+                  className="h-11 w-full rounded-none bg-navy-deep font-bold hover:bg-navy-ink"
                   nativeButton={false}
                   render={<Link href="/portal" />}
                 >

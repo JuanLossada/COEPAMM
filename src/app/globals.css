@@ -69,6 +69,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Las anclas (#cursos, #contacto…) no quedan tapadas por el navbar fijo */
+  scroll-padding-top: 92px;
 }
 
 body {

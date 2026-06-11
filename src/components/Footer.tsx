@@ -23,7 +23,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#quienes-somos"
-                  className="text-sky/80 transition-colors hover:text-white"
+                  className="inline-block text-sky/80 transition-colors hover:text-white max-sm:py-1"
                 >
                   Quiénes somos
                 </a>
@@ -31,7 +31,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#cursos"
-                  className="text-sky/80 transition-colors hover:text-white"
+                  className="inline-block text-sky/80 transition-colors hover:text-white max-sm:py-1"
                 >
                   Cursos
                 </a>
@@ -39,7 +39,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contacto"
-                  className="text-sky/80 transition-colors hover:text-white"
+                  className="inline-block text-sky/80 transition-colors hover:text-white max-sm:py-1"
                 >
                   Contacto
                 </a>
@@ -49,7 +49,7 @@ export default function Footer() {
                   href={contacto.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sky/80 transition-colors hover:text-white"
+                  className="inline-block text-sky/80 transition-colors hover:text-white max-sm:py-1"
                 >
                   Instagram {contacto.instagramUsuario}
                 </a>

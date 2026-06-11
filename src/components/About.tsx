@@ -2,7 +2,7 @@ import { quienesSomos, mision, vision, presencia } from "@/data/coepamm";
 
 export default function About() {
   return (
-    <section id="quienes-somos" className="bg-white px-4 py-28 sm:px-6">
+    <section id="quienes-somos" className="bg-white px-4 py-16 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-16">
           <div data-reveal="">

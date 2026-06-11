@@ -2,7 +2,7 @@ import { portalBeneficios } from "@/data/coepamm";
 
 export default function PortalSection() {
   return (
-    <section id="portal" className="bg-white px-4 py-28 sm:px-6">
+    <section id="portal" className="bg-white px-4 py-16 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-16">
           <div data-reveal="">
@@ -30,6 +30,10 @@ export default function PortalSection() {
                     : "sm:pl-8") +
                   (i < portalBeneficios.length - 2
                     ? " border-b border-navy-ink/10"
+                    : "") +
+                  // En móvil (1 columna) el penúltimo también necesita separador
+                  (i === portalBeneficios.length - 2
+                    ? " max-sm:border-b max-sm:border-navy-ink/10"
                     : "")
                 }
               >

@@ -22,7 +22,7 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="border-t border-navy-ink/[0.08] bg-mist px-4 py-24 sm:px-6"
+      className="border-t border-navy-ink/[0.08] bg-mist px-4 py-14 sm:px-6 sm:py-24"
     >
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr_1fr]">
         {/* Panel de asesoría */}

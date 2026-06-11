@@ -8,7 +8,7 @@ import { identidad } from "@/data/coepamm";
 export default function Hero() {
   return (
     <section className="border-b border-navy-ink/10 bg-white">
-      <div className="mx-auto max-w-6xl px-4 pt-48 pb-16 sm:px-6 sm:pt-[196px] sm:pb-20">
+      <div className="mx-auto max-w-6xl px-4 pt-32 pb-14 sm:px-6 sm:pt-[196px] sm:pb-20">
         {/* Aval institucional: la frase se resalta progresivamente en amarillo,
             como un capitán trazando la ruta sobre la carta náutica */}
         <div className="flex items-center gap-4">
@@ -23,7 +23,7 @@ export default function Hero() {
 
         <h1
           data-reveal=""
-          className="mt-8 max-w-4xl font-display text-5xl font-semibold leading-[1.12] tracking-[-0.008em] text-navy-ink text-balance sm:text-6xl lg:text-[66px]"
+          className="mt-8 max-w-4xl font-display text-4xl font-semibold leading-[1.12] tracking-[-0.008em] text-navy-ink text-balance sm:text-6xl lg:text-[66px]"
         >
           Formación marítima para la gente de mar de Venezuela
         </h1>
@@ -54,10 +54,10 @@ export default function Hero() {
         </div>
 
         {/* Franja de credenciales */}
-        <div className="mt-18 grid border-t border-navy-ink/10 sm:grid-cols-3">
+        <div className="mt-12 grid border-t border-navy-ink/10 sm:mt-18 sm:grid-cols-3">
           <div
             data-reveal=""
-            className="py-7 pr-9 sm:border-r sm:border-navy-ink/10"
+            className="border-b border-navy-ink/10 py-5 pr-9 sm:border-r sm:border-b-0 sm:py-7"
           >
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[#6b7989]">
               TRADICIÓN DESDE
@@ -73,7 +73,7 @@ export default function Hero() {
           <div
             data-reveal=""
             data-reveal-delay="110"
-            className="py-7 sm:border-r sm:border-navy-ink/10 sm:px-9"
+            className="border-b border-navy-ink/10 py-5 sm:border-r sm:border-b-0 sm:px-9 sm:py-7"
           >
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[#6b7989]">
               SUPERVISIÓN
@@ -85,7 +85,7 @@ export default function Hero() {
           <div
             data-reveal=""
             data-reveal-delay="220"
-            className="py-7 sm:pl-9"
+            className="py-5 sm:py-7 sm:pl-9"
           >
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[#6b7989]">
               ÁREAS DE FORMACIÓN

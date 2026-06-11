@@ -2,7 +2,7 @@ import { cursos } from "@/data/coepamm";
 
 export default function Courses() {
   return (
-    <section id="cursos" className="bg-navy-ink px-4 py-22 sm:px-6">
+    <section id="cursos" className="bg-navy-ink px-4 py-16 sm:px-6 sm:py-22">
       <div className="mx-auto max-w-6xl">
         <div
           data-reveal=""
@@ -47,7 +47,9 @@ export default function Courses() {
               <p className="mt-2 text-[13px] leading-[1.65] text-sky/[0.68]">
                 {c.descripcion}
               </p>
-              <span className="mt-auto flex items-center gap-2 pt-5 text-[11.5px] font-bold tracking-[0.12em] text-brass-light opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+              {/* En táctil (sin hover) el CTA queda siempre visible; el
+                  efecto de aparición se reserva para desktop (lg+) */}
+              <span className="mt-auto flex items-center gap-2 pt-5 text-[11.5px] font-bold tracking-[0.12em] text-brass-light transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100 group-focus-visible:opacity-100">
                 VER MÁS DETALLES{" "}
                 <span
                   aria-hidden="true"

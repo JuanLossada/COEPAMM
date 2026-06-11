@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function PhotoBand() {
   return (
     <section className="relative overflow-hidden bg-navy-ink">
-      <div className="relative h-[clamp(440px,60vh,640px)] w-full">
+      <div className="relative h-[340px] w-full sm:h-[clamp(440px,60vh,640px)]">
         <Image
           src="/velero.jpg"
           alt="Velero navegando a vela con tripulación a bordo"
