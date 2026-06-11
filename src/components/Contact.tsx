@@ -24,11 +24,11 @@ export default function Contact() {
       id="contacto"
       className="border-t border-navy-ink/[0.08] bg-mist px-4 py-24 sm:px-6"
     >
-      <div className="mx-auto grid max-w-6xl border border-navy-ink/10 bg-white lg:grid-cols-[1.1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr_1fr]">
         {/* Panel de asesoría */}
         <div
           data-reveal=""
-          className="flex flex-col justify-between border-b border-navy-ink/10 p-9 sm:p-14 lg:border-r lg:border-b-0"
+          className="flex flex-col justify-between border border-navy-ink/10 bg-white p-9 sm:p-14"
         >
           <div>
             <p className="text-xs font-normal tracking-[0.26em] text-brass">
@@ -108,7 +108,11 @@ export default function Contact() {
         </div>
 
         {/* Ubicación */}
-        <div data-reveal="" data-reveal-delay="120" className="flex flex-col">
+        <div
+          data-reveal=""
+          data-reveal-delay="120"
+          className="flex flex-col border border-navy-ink/10 bg-white"
+        >
           <iframe
             src={contacto.mapsEmbed}
             title="Ubicación de COEPAMM en Google Maps"
