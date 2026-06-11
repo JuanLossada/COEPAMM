@@ -1,37 +1,102 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { identidad } from "@/data/coepamm";
 
+/*
+ * Hero "Sobrio": blanco protocolar, serif institucional, filete dorado
+ * como único acento. Sin ornamentos; la estructura se sostiene con
+ * jerarquía tipográfica, aire y filetes finos.
+ */
 export default function Hero() {
   return (
-    <section className="bg-white pb-20 pt-36 sm:pb-24 sm:pt-44">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-2xl">
-          <Badge variant="secondary" className="mb-4 gap-2 px-3.5 py-1.5">
-            <span
-              className="size-2 rounded-full bg-sun-dark"
-              aria-hidden="true"
-            />
-            Avalado por {identidad.avales.join(" y ")} · {identidad.cobertura}
-          </Badge>
-          <h1 className="font-display text-4xl font-extrabold leading-tight text-navy-ink sm:text-5xl">
-            Formación marítima para la{" "}
-            <span className="text-navy">gente de mar</span> de Venezuela
-          </h1>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            {identidad.nombreLegal} · {identidad.lema}. Capacitación para
-            patrones, motoristas y personal de plataforma costa afuera, con
+    <section className="border-b border-navy-ink/10 bg-white">
+      <div className="mx-auto max-w-6xl px-4 pt-48 sm:px-6 sm:pt-[196px]">
+        {/* Aval institucional */}
+        <div className="flex items-center gap-4">
+          <span className="h-px w-11 bg-brass" aria-hidden="true" />
+          <p className="text-xs font-semibold tracking-[0.26em] text-[#6b7989]">
+            AVALADO POR {identidad.avales.join(" Y ").toUpperCase()} ·{" "}
+            {identidad.cobertura.toUpperCase()}
+          </p>
+        </div>
+
+        <h1
+          data-reveal=""
+          className="mt-8 max-w-4xl font-display text-5xl font-semibold leading-[1.12] tracking-[-0.008em] text-navy-ink text-balance sm:text-6xl lg:text-[66px]"
+        >
+          Formación marítima para la gente de mar de Venezuela
+        </h1>
+
+        <div className="mt-10 grid items-end gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+          <p
+            data-reveal=""
+            data-reveal-delay="90"
+            className="mb-1.5 max-w-xl text-[17px] leading-relaxed text-[#3a4a5c] text-pretty"
+          >
+            {identidad.nombreLegal}. Cursos OMI y SIAHO para patrones,
+            motoristas y personal de plataforma costa afuera, impartidos por
             instructores certificados.
           </p>
-          <div className="mt-8">
-            <Button
-              size="lg"
-              className="h-11 px-8 text-base"
-              nativeButton={false}
-              render={<a href="#cursos" />}
+          <div
+            data-reveal=""
+            data-reveal-delay="160"
+            className="flex flex-col gap-3 pb-1.5"
+          >
+            <a
+              href="#cursos"
+              className="flex items-center justify-between gap-3.5 bg-navy-deep px-6 py-4 text-[15px] font-bold text-white transition-colors hover:bg-navy-ink"
             >
-              Ver cursos
-            </Button>
+              <span>Ver catálogo de cursos</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="#contacto"
+              className="flex items-center justify-between gap-3.5 border border-navy-ink/25 px-6 py-4 text-[15px] font-semibold text-navy-deep transition-colors hover:border-navy-deep hover:bg-mist"
+            >
+              <span>Solicitar asesoría</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Franja de credenciales */}
+        <div className="mt-18 grid border-t border-navy-ink/10 sm:grid-cols-3">
+          <div
+            data-reveal=""
+            className="py-7 pr-9 sm:border-r sm:border-navy-ink/10"
+          >
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[#6b7989]">
+              TRADICIÓN DESDE
+            </p>
+            <p
+              data-count-to="1958"
+              data-count-from="1900"
+              className="mt-2.5 font-display text-[34px] font-semibold text-navy-ink tabular-nums"
+            >
+              1958
+            </p>
+          </div>
+          <div
+            data-reveal=""
+            data-reveal-delay="110"
+            className="py-7 sm:border-r sm:border-navy-ink/10 sm:px-9"
+          >
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[#6b7989]">
+              SUPERVISIÓN
+            </p>
+            <p className="mt-2.5 font-display text-[34px] font-semibold text-navy-ink">
+              INEA · OMI
+            </p>
+          </div>
+          <div
+            data-reveal=""
+            data-reveal-delay="220"
+            className="py-7 sm:pl-9"
+          >
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[#6b7989]">
+              ÁREAS DE FORMACIÓN
+            </p>
+            <p className="mt-2.5 font-display text-[34px] font-semibold text-navy-ink">
+              OMI · SHA
+            </p>
           </div>
         </div>
       </div>

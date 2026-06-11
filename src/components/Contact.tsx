@@ -1,18 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ArrowRightIcon,
-  CheckCircledIcon,
-  EnvelopeClosedIcon,
-  InstagramLogoIcon,
-  MobileIcon,
-} from "@radix-ui/react-icons";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { contacto } from "@/data/coepamm";
 
 function telHref(t: string) {
@@ -32,115 +20,116 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" className="border-t bg-sky-soft py-14 sm:py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid items-stretch gap-6 lg:grid-cols-[1.1fr_1fr]">
-          {/* CTA de conversión: invitación a iniciar la conversación comercial */}
-          <Card className="justify-between gap-0 border-navy bg-navy p-7 text-white sm:p-9">
-            <div>
-              <h2 className="font-display text-2xl font-bold leading-snug sm:text-3xl">
-                ¿Interesado en alguna certificación marítima?
-              </h2>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-sky/85">
-                Nuestro equipo puede asesorarte sobre requisitos,
-                documentación, tiempos de gestión y procesos de certificación.
-              </p>
+    <section
+      id="contacto"
+      className="border-t border-navy-ink/[0.08] bg-mist px-4 py-24 sm:px-6"
+    >
+      <div className="mx-auto grid max-w-6xl border border-navy-ink/10 bg-white lg:grid-cols-[1.1fr_1fr]">
+        {/* Panel de asesoría */}
+        <div
+          data-reveal=""
+          className="flex flex-col justify-between border-b border-navy-ink/10 p-9 sm:p-14 lg:border-r lg:border-b-0"
+        >
+          <div>
+            <p className="text-xs font-semibold tracking-[0.26em] text-brass">
+              CONTACTO
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.25] text-navy-ink text-balance">
+              ¿Interesado en alguna certificación marítima?
+            </h2>
+            <p className="mt-3.5 max-w-md text-[14.5px] leading-relaxed text-muted-foreground">
+              Nuestro equipo puede asesorarte sobre requisitos, documentación,
+              tiempos de gestión y procesos de certificación.
+            </p>
 
-              {enviado ? (
-                <Alert className="mt-6 max-w-md border-sun/40 bg-white text-navy-ink">
-                  <CheckCircledIcon className="size-4" />
-                  <AlertTitle>Solicitud recibida</AlertTitle>
-                  <AlertDescription>
-                    Te contactaremos pronto en {enviado}.
-                  </AlertDescription>
-                </Alert>
-              ) : (
-                <form
-                  onSubmit={solicitarAsesoria}
-                  className="mt-6 flex max-w-md flex-col gap-3 sm:flex-row"
+            {enviado ? (
+              <div className="mt-7 max-w-md border border-brass bg-[#fdfbef] px-5.5 py-4.5">
+                <p className="text-sm font-bold text-navy-ink">
+                  Solicitud recibida
+                </p>
+                <p className="mt-1.5 text-[13.5px] text-muted-foreground">
+                  Te contactaremos pronto en {enviado}.
+                </p>
+              </div>
+            ) : (
+              <form
+                onSubmit={solicitarAsesoria}
+                className="mt-7 flex max-w-md flex-col sm:flex-row"
+              >
+                <input
+                  type="email"
+                  required
+                  value={correo}
+                  onChange={(e) => setCorreo(e.target.value)}
+                  placeholder="Tu correo electrónico"
+                  aria-label="Tu correo electrónico"
+                  className="min-w-0 flex-1 border border-navy-ink/25 bg-white px-4.5 py-3.5 text-[14.5px] text-navy-ink outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-navy-deep sm:border-r-0"
+                />
+                <button
+                  type="submit"
+                  className="cursor-pointer border border-navy-deep bg-navy-deep px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-white transition-colors hover:bg-navy-ink"
                 >
-                  <Input
-                    type="email"
-                    required
-                    value={correo}
-                    onChange={(e) => setCorreo(e.target.value)}
-                    placeholder="Tu correo electrónico"
-                    aria-label="Tu correo electrónico"
-                    className="border-white/30 bg-white/10 text-white placeholder:text-sky/60 focus-visible:ring-sun"
-                  />
-                  <Button
-                    type="submit"
-                    className="shrink-0 bg-sun font-bold text-navy-ink hover:bg-sun-dark"
-                  >
-                    Solicitar asesoría
-                  </Button>
-                </form>
-              )}
-            </div>
+                  SOLICITAR
+                </button>
+              </form>
+            )}
+          </div>
 
-            <div className="mt-8">
-              <Separator className="bg-white/15" />
-              <ul className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-sky/80">
-                {contacto.telefonos.slice(0, 2).map((t) => (
-                  <li key={t}>
-                    <a
-                      href={telHref(t)}
-                      className="inline-flex items-center gap-1.5 hover:text-white"
-                    >
-                      <MobileIcon className="size-3.5" aria-hidden="true" />
-                      {t}
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <a
-                    href={`mailto:${contacto.email}`}
-                    className="inline-flex items-center gap-1.5 hover:text-white"
-                  >
-                    <EnvelopeClosedIcon className="size-3.5" aria-hidden="true" />
-                    {contacto.email}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={contacto.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-semibold text-sun hover:text-white"
-                  >
-                    <InstagramLogoIcon className="size-3.5" aria-hidden="true" />
-                    {contacto.instagramUsuario}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Card>
+          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2.5 border-t border-navy-ink/10 pt-6 text-[13px]">
+            {contacto.telefonos.slice(0, 2).map((t) => (
+              <li key={t}>
+                <a
+                  href={telHref(t)}
+                  className="text-muted-foreground transition-colors hover:text-navy-ink"
+                >
+                  {t}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href={`mailto:${contacto.email}`}
+                className="text-muted-foreground transition-colors hover:text-navy-ink"
+              >
+                {contacto.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={contacto.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-navy-deep transition-colors hover:text-navy-ink"
+              >
+                {contacto.instagramUsuario}
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          {/* Ubicación: vista satelital integrada de la sede */}
-          <Card className="gap-0 overflow-hidden py-0">
-            <iframe
-              src={contacto.mapsEmbed}
-              title="Ubicación de COEPAMM en Google Maps"
-              className="h-64 w-full sm:h-72 lg:h-[calc(100%-3.75rem)]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-            <a
-              href={contacto.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-15 items-center justify-between gap-3 px-5 py-3 text-xs text-muted-foreground transition-colors hover:text-navy"
-            >
-              <span>
-                {contacto.direccion}, {contacto.ciudad}
-              </span>
-              <span className="inline-flex shrink-0 items-center gap-1 font-semibold text-navy">
-                Cómo llegar
-                <ArrowRightIcon className="size-3.5" aria-hidden="true" />
-              </span>
-            </a>
-          </Card>
+        {/* Ubicación */}
+        <div data-reveal="" data-reveal-delay="120" className="flex flex-col">
+          <iframe
+            src={contacto.mapsEmbed}
+            title="Ubicación de COEPAMM en Google Maps"
+            className="min-h-80 w-full flex-1 border-0 grayscale-[0.35]"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <a
+            href={contacto.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between gap-4 border-t border-navy-ink/10 px-6 py-4.5 text-xs text-muted-foreground transition-colors hover:text-navy-ink"
+          >
+            <span>
+              {contacto.direccion}, {contacto.ciudad}
+            </span>
+            <span className="shrink-0 font-bold text-navy-deep">
+              Cómo llegar →
+            </span>
+          </a>
         </div>
       </div>
     </section>
