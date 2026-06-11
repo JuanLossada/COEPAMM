@@ -195,11 +195,37 @@ body {
   transform: none;
 }
 
+/* Resaltado "carta náutica": al cargar la página, un marcador amarillo
+   recorre la frase de izquierda a derecha como un capitán trazando la
+   ruta. Solo anima background-size (compuesto, 60 fps). */
+.cp-chart-trace {
+  padding: 0.3em 0.45em;
+  margin: -0.3em -0.45em;
+  background-image: linear-gradient(
+    100deg,
+    rgba(240, 227, 66, 0.55) 0%,
+    rgba(240, 227, 66, 0.38) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: 0 62%;
+  background-size: 0% 58%;
+  animation: cp-trace 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+}
+@keyframes cp-trace {
+  to {
+    background-size: 100% 58%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cp-reveal {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .cp-chart-trace {
+    animation: none;
+    background-size: 100% 58%;
   }
   html {
     scroll-behavior: auto;

@@ -8,13 +8,16 @@ import { identidad } from "@/data/coepamm";
 export default function Hero() {
   return (
     <section className="border-b border-navy-ink/10 bg-white">
-      <div className="mx-auto max-w-6xl px-4 pt-48 sm:px-6 sm:pt-[196px]">
-        {/* Aval institucional */}
+      <div className="mx-auto max-w-6xl px-4 pt-48 pb-16 sm:px-6 sm:pt-[196px] sm:pb-20">
+        {/* Aval institucional: la frase se resalta progresivamente en amarillo,
+            como un capitán trazando la ruta sobre la carta náutica */}
         <div className="flex items-center gap-4">
-          <span className="h-px w-11 bg-brass" aria-hidden="true" />
-          <p className="text-xs font-semibold tracking-[0.26em] text-[#6b7989]">
-            AVALADO POR {identidad.avales.join(" Y ").toUpperCase()} ·{" "}
-            {identidad.cobertura.toUpperCase()}
+          <span className="h-px w-5 bg-brass" aria-hidden="true" />
+          <p className="text-xs font-semibold tracking-[0.26em] text-[#46566a]">
+            <span className="cp-chart-trace">
+              AVALADO POR {identidad.avales.join(" Y ").toUpperCase()} ·{" "}
+              {identidad.cobertura.toUpperCase()}
+            </span>
           </p>
         </div>
 
@@ -38,20 +41,13 @@ export default function Hero() {
           <div
             data-reveal=""
             data-reveal-delay="160"
-            className="flex flex-col gap-3 pb-1.5"
+            className="flex flex-col justify-end pb-1.5"
           >
             <a
               href="#cursos"
               className="flex items-center justify-between gap-3.5 bg-navy-deep px-6 py-4 text-[15px] font-bold text-white transition-colors hover:bg-navy-ink"
             >
               <span>Ver catálogo de cursos</span>
-              <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href="#contacto"
-              className="flex items-center justify-between gap-3.5 border border-navy-ink/25 px-6 py-4 text-[15px] font-semibold text-navy-deep transition-colors hover:border-navy-deep hover:bg-mist"
-            >
-              <span>Solicitar asesoría</span>
               <span aria-hidden="true">→</span>
             </a>
           </div>

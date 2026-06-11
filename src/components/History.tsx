@@ -8,7 +8,7 @@ export default function History() {
     >
       <div className="mx-auto max-w-6xl">
         <div data-reveal="" className="max-w-xl">
-          <p className="text-xs font-semibold tracking-[0.26em] text-brass">
+          <p className="text-xs font-normal tracking-[0.26em] text-brass">
             NUESTRA HISTORIA
           </p>
           <h2 className="mt-4 font-display text-[32px] font-semibold leading-[1.22] text-navy-ink">

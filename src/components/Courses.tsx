@@ -9,7 +9,7 @@ export default function Courses() {
           className="flex flex-wrap items-end justify-between gap-8"
         >
           <div className="max-w-xl">
-            <p className="text-xs font-semibold tracking-[0.26em] text-brass-light">
+            <p className="text-xs font-normal tracking-[0.26em] text-brass-light">
               CURSOS
             </p>
             <h2 className="mt-4 font-display text-[32px] font-semibold leading-[1.22] text-white">
@@ -28,16 +28,15 @@ export default function Courses() {
           </a>
         </div>
 
-        <div className="mt-14 grid border-t border-sky/15 sm:grid-cols-2">
+        {/* Cards clicables: se iluminan al pasar el cursor y revelan el CTA */}
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
           {cursos.map((c, i) => (
-            <div
+            <a
               key={c.nombre}
+              href="#contacto"
               data-reveal=""
               data-reveal-delay={String(i * 70)}
-              className={
-                "border-b border-sky/15 py-7.5 transition-colors hover:bg-sky/[0.04] " +
-                (i % 2 === 0 ? "sm:border-r sm:pr-10" : "sm:pl-10")
-              }
+              className="group flex flex-col border border-sky/15 bg-white/[0.02] p-7 outline-none transition-all duration-300 hover:-translate-y-1 hover:border-brass-light/60 hover:bg-sky/[0.07] hover:shadow-[0_22px_44px_-20px_rgba(0,0,0,0.6)] focus-visible:-translate-y-1 focus-visible:border-brass-light/60 focus-visible:bg-sky/[0.07]"
             >
               <p
                 className={
@@ -53,7 +52,16 @@ export default function Courses() {
               <p className="mt-2.5 text-[13.5px] leading-[1.7] text-sky/[0.68]">
                 {c.descripcion}
               </p>
-            </div>
+              <span className="mt-auto flex items-center gap-2 pt-6 text-[12px] font-bold tracking-[0.12em] text-brass-light opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                VER MÁS DETALLES{" "}
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </span>
+            </a>
           ))}
         </div>
       </div>

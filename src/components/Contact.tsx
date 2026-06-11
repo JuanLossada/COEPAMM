@@ -31,7 +31,7 @@ export default function Contact() {
           className="flex flex-col justify-between border-b border-navy-ink/10 p-9 sm:p-14 lg:border-r lg:border-b-0"
         >
           <div>
-            <p className="text-xs font-semibold tracking-[0.26em] text-brass">
+            <p className="text-xs font-normal tracking-[0.26em] text-brass">
               CONTACTO
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.25] text-navy-ink text-balance">

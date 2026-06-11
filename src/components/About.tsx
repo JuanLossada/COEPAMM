@@ -6,7 +6,7 @@ export default function About() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-16">
           <div data-reveal="">
-            <p className="text-xs font-semibold tracking-[0.26em] text-brass">
+            <p className="text-xs font-normal tracking-[0.26em] text-brass">
               QUIÉNES SOMOS
             </p>
             <h2 className="mt-4 font-display text-[32px] font-semibold leading-[1.22] text-navy-ink text-balance">
@@ -35,7 +35,7 @@ export default function About() {
                 data-reveal=""
                 className="pt-7.5 sm:border-r sm:border-navy-ink/10 sm:pr-9"
               >
-                <p className="text-[11px] font-semibold tracking-[0.26em] text-brass">
+                <p className="text-[11px] font-normal tracking-[0.26em] text-brass">
                   MISIÓN
                 </p>
                 <p className="mt-3.5 text-sm leading-[1.75] text-[#3a4a5c] text-pretty">
@@ -47,7 +47,7 @@ export default function About() {
                 data-reveal-delay="120"
                 className="pt-7.5 sm:pl-9"
               >
-                <p className="text-[11px] font-semibold tracking-[0.26em] text-brass">
+                <p className="text-[11px] font-normal tracking-[0.26em] text-brass">
                   VISIÓN
                 </p>
                 <p className="mt-3.5 text-sm leading-[1.75] text-[#3a4a5c] text-pretty">

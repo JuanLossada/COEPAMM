@@ -6,7 +6,7 @@ export default function PortalSection() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-16">
           <div data-reveal="">
-            <p className="text-xs font-semibold tracking-[0.26em] text-brass">
+            <p className="text-xs font-normal tracking-[0.26em] text-brass">
               PORTAL DE AFILIADOS
             </p>
             <h2 className="mt-4 font-display text-[32px] font-semibold leading-[1.22] text-navy-ink text-balance">
